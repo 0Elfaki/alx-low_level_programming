@@ -1,5 +1,11 @@
 #!/bin/bash
-echo "Enter you commit msg : "
+
+echo "Enter your commit message: "
+read msg
+
 git add .
 git commit -m "$msg"
-git push 
+git push
+
+echo "Changes committed and pushed."
+
