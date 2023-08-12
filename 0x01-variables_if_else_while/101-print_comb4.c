@@ -1,35 +1,55 @@
 #include <stdio.h>
-  2 
-  3 /**
-  4  * main - prints all possible different combinations of three digit    s
-  5  * Return: Always 0 (Success)
-  6  */
-  7 int main(void)
-  8 {
-  9         int n, m, l;
- 10 
- 11         for (n = 48; n < 58; n++)
- 12         {
- 13                 for (m = 49; m < 58; m++)
- 14                 {
- 15                         for (l = 50; l < 58; l++)
- 16                         {
- 17                                 if (l > m && m > n)
- 18                                 {
- 19                                         putchar(n);
- 20                                         putchar(m);
- 21                                         putchar(l);
- 22                                         if (n != 55 || m != 56)
- 23                                         {
- 24                                                 putchar(',');
- 25                                                 putchar(' ');
- 26                                         }
- 27                                 }
- 28                         }
- 29                 }
- 30         }
- 31         putchar('\n');
- 32         return (0);
- 33 }
- 34 
-~          
+#include <stdlib.h>
+/**
+ * main - main block
+ * Description: Write a program that prints all possible
+ * different combinations of two digits
+ * Numbers must be separated by ,, followed by a space
+ * The two digits must be different
+ * 01 and 10 are considered the same combination of the two digits 0 and 1
+ * Print only the smallest combination of two digits
+ * Numbers should be printed in ascending order, with two digits
+ * You can only use the putchar function
+ * (every other function (printf, puts, etc…) is forbidden)
+ * You can only use putchar five times maximum in your code
+ * You are not allowed to use any variable of type char
+ * All your code should be in the main function
+ * Return: 0
+ */
+int main(void)
+{
+	int c;
+	int d;
+	int e = 0;
+
+	while (e < 10)
+	{
+		d = 0;
+		while (d < 10)
+		{
+			c = 0;
+			while (c < 10)
+			{
+				if (c != d && d != e && e < d && d < c)
+				{
+					putchar('0' + e);
+					putchar('0' + d);
+					putchar('0' + c);
+
+					if (c + d + e != 9 + 8 + 7)
+					{
+						putchar(',');
+						putchar(' ');
+					}
+				}
+
+				c++;
+			}
+			d++;
+		}
+		e++;
+	}
+	putchar('\n');
+	return (0);
+}
+          
