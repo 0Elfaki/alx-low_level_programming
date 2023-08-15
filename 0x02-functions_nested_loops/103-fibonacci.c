@@ -7,21 +7,21 @@
  */
 int main(void)
 {
-	int n;
-	unsigned long int n, k, next, sum;
+	int i;
+	unsigned long int a, k, next, sum;
 
-	n = 1;
+	a = 1;
 	k = 2;
 	sum = 0;
 
 	for (i = 1; i <= 33; ++i)
 	{
-		if (n < 4000000 && (n % 2) == 0)
+		if (a < 4000000 && (a % 2) == 0)
 		{
-			sum = sum + n;
+			sum = sum + a;
 		}
-		next = n + k;
-		n = k;
+		next = j + k;
+		a = k;
 		k = next;
 	}
 
