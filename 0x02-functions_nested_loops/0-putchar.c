@@ -1,22 +1,19 @@
 #include "main.h"
 #include <stdio.h>
 
-/**
- * main - main block
- * Description: Get a random number and print the number
- * and if it is positive, negative, or zero
- * Return: 0
- */
+int main(void){
+	char text[] = "_putchar";
+	int i = 0;
 
-int main(void)
-{
-char c[9] = "_putchar";
-int i = 0;
-while (i < 8)
-{
-_putchar(c[i]);
-i++;
+	while (text[i] != '\0') {
+		_putchar(text[i]);
+		i++;
+	}
+
+	_putchar('\n');
+	return 0;
 }
-_putchar('\n');
-return (0);
+
+int _putchar(char c) {
+	return write(1, &c,1);
 }
