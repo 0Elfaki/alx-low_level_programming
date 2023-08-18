@@ -1,14 +1,12 @@
 #include "main.h"
 /**
-*_isdigit - function that verifies if a  character is a digit or not
-*@c: tested character
-*Return: returns 1 if it is uppercase , 0 if not
+*mul - function that multipliestwo numbers
+*@a: first number
+*@b: second number
+*Return: returns result
 */
 
-int _isdigit(int c)
+int mul(int a, int b)
 {
-if ((c >= 48) && (c <= 57))
-return (1);
-
-return (0);
+return (a * b);
 }
