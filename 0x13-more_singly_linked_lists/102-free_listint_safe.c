@@ -1,40 +1,43 @@
 #include "lists.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
- * free_listint_safe - frees a linked list
- * @h: pointer to the first node in the linked list
+ * free_listint_safe - function that frees a listint_t list
+ * @h: double pointer to the struct listint_t
  *
- * Return: number of elements in the freed list
+ * Return: size_t, number of nodes in the linked list
  */
+
 size_t free_listint_safe(listint_t **h)
 {
-	size_t len = 0;
-	int diff;
+	int diff = 0;
+	size_t count;
 	listint_t *temp;
+	listint_t *current;
 
-	if (!h || !*h)
-		return (0);
+	if (h == NULL)
+                return (0);
+        if (*h == NULL)
+                return (0);
 
-	while (*h)
+	current = *h;
+
+	count = 0;
+	while (current != NULL)
 	{
-		diff = *h - (*h)->next;
+		count++;
+		diff = current - current->next;
 		if (diff > 0)
 		{
-			temp = (*h)->next;
-			free(*h);
-			*h = temp;
-			len++;
+			temp = current;
+			current = current->next;
+			free(temp);
 		}
 		else
-		{
-			free(*h);
-			*h = NULL;
-			len++;
 			break;
-		}
 	}
-
-	*h = NULL;
-
-	return (len);
+	*head = NULL;
+	return (count);
 }
